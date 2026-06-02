@@ -37,8 +37,8 @@ public class ProductServiceTest {
     @Test
     public void testCreateProduct_SuccessWithValidRutAlternative() {
         // P0206261530 is initial 'P' + date 02/06/26 15:30. Name is "Pan con Queso".
-        // RUT 76.543.210-K is mathematically valid and in CSV.
-        String plainText = "P0206261530,Pan con Queso,100,1200,76.543.210-K,distribuidora@moiko.cl";
+        // RUT 76.543.212-K is mathematically valid and in CSV.
+        String plainText = "P0206261530,Pan con Queso,100,1200,76.543.212-K,distribuidora@moiko.cl";
         
         Product product = productService.createProductFromText(plainText);
         
@@ -47,7 +47,7 @@ public class ProductServiceTest {
         assertEquals("Pan con Queso", product.getName());
         assertEquals(100, product.getStock());
         assertEquals(1200.0, product.getPrice());
-        assertEquals("76.543.210-K", product.getSupplierRut());
+        assertEquals("76.543.212-K", product.getSupplierRut());
         assertEquals("distribuidora@moiko.cl", product.getSupplierEmail());
     }
 
